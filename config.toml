@@ -1,91 +1,77 @@
-baseURL = "http://example.org/"
-DefaultContentLanguage = "en" # Theme's display language, supports: en, fr, zh, zh-hant
-languageCode = "en-us"
-title = "A Hugo Site"
-copyright = "This is a customized copyright."
+# ==========================================
+# 基础设置
+# ==========================================
+# 填入 Vercel 分配给你的网址，例如 "https://hugo-novel.vercel.app/"
+baseURL = "/" 
+# 默认语言设为中文，这样侧边栏会自动变中文
+DefaultContentLanguage = "zh" 
+languageCode = "zh-cn"
+# 你的小说网站名字
+title = "我的哥布林小说网" 
+# 底部版权声明
+copyright = "© 2026 小说作者名. All Rights Reserved."
+# 确保这里和你 themes 文件夹下的名字一致
 theme = "diary"
 
-# Generate sitemap in the public folder
+# ==========================================
+# 菜单栏设置 (控制左侧/顶部导航)
+# ==========================================
+[[menu.main]]
+    url = "/posts"
+    name = "章节目录"    # 原为 Archive
+    weight = 1
+[[menu.main]]
+    url = "/categories"
+    name = "作品分类"    # 原为 Categories
+    weight = 2
+[[menu.main]]
+    url = "/tags"
+    name = "内容标签"    # 原为 Tags
+    weight = 3
+[[menu.main]]
+    url = "/index.xml"
+    name = "订阅更新"    # 原为 RSS
+    weight = 4
+
+# ==========================================
+# 网站功能参数 (Diary 主题专有)
+# ==========================================
+[params]
+    # 网站副标题，会显示在头像下方
+    subtitle = "这里写一句你小说的简介或格言"
+    
+    # 侧边栏设置
+    enableSidebar = true         # 开启侧边栏
+    fixedSidebar = true          # 滚动时固定侧边栏（推荐小说站开启）
+
+    # 评论系统（如果还没配置好，建议都设为 false，页面会更清爽）
+    enableGitalk = false
+    enableGiscus = false         # 暂时关闭报错的评论框
+
+    # 社交分享设置 (Open Graph)
+    enableOpenGraph = true
+    enableTwitterCards = true
+    # 当别人分享你的链接时显示的标题和描述
+    title = "哥布林小说网" 
+    description = "一部关于哥布林冒险的神奇小说..."
+
+# ==========================================
+# 渲染设置 (代码高亮等)
+# ==========================================
+[markup]
+  [markup.highlight]
+    codeFences = true
+    style = "perldoc" # 也可以换成 "monokai" 或 "github"
+
+# ==========================================
+# 搜索与地图 (SEO)
+# ==========================================
 [sitemap]
   changefreq = "always"
   filename = "sitemap.xml"
   priority = 0.5
 
-# Google Analytics
-[services]
-  [services.googleAnalytics]
-    id = "G-XXXXXXXXXX"  # Your Google Analytics ID
-
-[markup]
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "perldoc"
-    tabWidth = 4
-
-[params]
-subtitle = "Themed by Diary."
-enableGitalk = false
-enableGiscus = true
-
-# Microsoft Clarity (https://clarity.microsoft.com/) is a free user behavior recording and analytics tool
-clarity = "abcdefghzd"
-
-# Twitter Card and Open Graph settings
-enableOpenGraph = true
-enableTwitterCards = true
-title = "My Blog" # will set 'og:site_name'
-description = "My HomePage Description"  # will set 'og:description'
-
-[params.gitalk]
-  owner = "user"
-  repo = "repo name"
-  client_id = "your client id"
-  client_secret = "your client secret"
+# 分类法定义
 [taxonomies]
    tag = "tags"
    category = "categories"
-
-[params.utterances]
-repo="your repo"
-term="[ENTER TERM HERE]"
-label="your label"
-theme="github-light"
-
-# Please visit https://giscus.app/ to generate settings.
-[params.giscus]
-    data_repo="username/repo"
-    data_repo_id="**************************"    
-    data_category="General"
-    data_category_id="*********************"
-    data_mapping="pathname"
-    data_strict="0"
-    data_reactions_enabled="1"
-    data_emit_metadata="0"
-    data_input_position="bottom"
-    data_theme="preferred_color_scheme"
-    data_lang="en"
-    crossorigin="anonymous"
-
-
-[[menu.main]]
-url = "/categories"
-name = "Categories"
-weight = 2
-[[menu.main]]
-url = "/tags"
-name = "Tags"
-weight = 3
-[[menu.main]]
-url = "/posts"
-name = "Archive"
-weight = 1
-[[menu.main]]
-url = "/index.xml"
-name = "RSS Feed"
-weight = 4
