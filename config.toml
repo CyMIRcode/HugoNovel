@@ -7,7 +7,7 @@ baseURL = "/"
 DefaultContentLanguage = "zh" 
 languageCode = "zh-cn"
 # 你的小说网站名字
-title = "我的哥布林小说网" 
+title = "苔藓与钢铁" 
 # 底部版权声明
 copyright = "© 2026 小说作者名. All Rights Reserved."
 # 确保这里和你 themes 文件夹下的名字一致
@@ -38,7 +38,7 @@ theme = "diary"
 # ==========================================
 [params]
     # 网站副标题，会显示在头像下方
-    subtitle = "这里写一句你小说的简介或格言"
+    subtitle = "当卑微者踏平群山，钢铁便在绿意中生锈。"
     
     # 侧边栏设置
     enableSidebar = true         # 开启侧边栏
