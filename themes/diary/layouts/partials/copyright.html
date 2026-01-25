@@ -1,12 +1,16 @@
-<!-- Please don't remove the information of theme makers. -->
-{{ i18n "hugo_theme" }} <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> {{ i18n "by" }} <a href="https://risehere.net/">Rise</a>
-<br>
-{{ i18n "ported_from" }} <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-<!-- Because this project is under MIT licence. -->
-&copy;
-	{{ if .Site.Copyright }}
-	{{ .Site.Copyright }}
-	{{ else }}
-	{{.Site.Home.Date.Year}} {{.Site.Title}}
-	{{ end }}
+<div style="line-height: 1.8; opacity: 0.85; font-family: inherit;">
+    <p style="font-size: 0.8em;">
+        Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> 
+        &nbsp;|&nbsp; 
+        Theme <a href="https://github.com/amazingrise/hugo-theme-diary" target="_blank" rel="external nofollow">Diary</a>
+    </p>
+
+    <p style="font-size: 0.9em; margin-top: 5px;">
+        &copy; {{ .Site.Params.since | default "2025" }}-{{ .Site.Lastmod.Year }} 
+        <strong>{{ .Site.Title }}</strong>
+    </p>
+
+    <p style="font-size: 0.85em; letter-spacing: 1px; color: #888;">
+        哥布林傳奇 · 苔蘚與鋼鐵
+    </p>
+</div>
