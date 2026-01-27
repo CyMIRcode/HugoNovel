@@ -3,5 +3,6 @@
     "env": {
       "HUGO_VERSION": "0.121.2"
     }
-  }
+  },
+  "installCommand": "yum install -y libstdc++ && curl -L https://github.com/gohugoio/hugo/releases/download/v0.121.2/hugo_extended_0.121.2_linux-amd64.tar.gz | tar -xz && mv hugo /usr/local/bin/hugo"
 }
