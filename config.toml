@@ -11,7 +11,7 @@ title = "苔藓与钢铁"
 # 底部版权声明
 copyright = "苔藓与钢铁. All Rights Reserved."
 # 确保这里和你 themes 文件夹下的名字一致
-theme = "hugo-clarity-master"
+theme = "clarity"
 
 # ==========================================
 # 菜单栏设置 (控制左侧/顶部导航)
