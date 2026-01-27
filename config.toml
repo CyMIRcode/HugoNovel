@@ -1,77 +1,71 @@
 # ==========================================
-# 基础设置
+# 1. 基础全局设置
 # ==========================================
-# 填入 Vercel 分配给你的网址，例如 "https://hugo-novel.vercel.app/"
-baseURL = "/" 
-# 默认语言设为中文，这样侧边栏会自动变中文
-DefaultContentLanguage = "zh" 
-languageCode = "zh-cn"
-# 你的小说网站名字
-title = "苔藓与钢铁" 
-# 底部版权声明
-copyright = "苔藓与钢铁. All Rights Reserved."
-# 确保这里和你 themes 文件夹下的名字一致
+baseURL = "/"
+title = "苔藓与钢铁"
+copyright = "© 苔藓与钢铁. All Rights Reserved."
 theme = "clarity"
 
+# 默认语言与国际化
+defaultContentLanguage = "zh"
+languageCode = "zh-cn"
+hasCJKLanguage = true    # 核心：开启中日韩文字优化，确保小说字数统计和摘要显示正常
+
 # ==========================================
-# 菜单栏设置 (控制左侧/顶部导航)
+# 2. 导航菜单 (Clarity 顶部菜单)
 # ==========================================
 [[menu.main]]
+    name = "章节目录"
     url = "/posts"
-    name = "章节目录"    # 原为 Archive
     weight = 1
 [[menu.main]]
+    name = "作品分类"
     url = "/categories"
-    name = "作品分类"    # 原为 Categories
     weight = 2
 [[menu.main]]
+    name = "内容标签"
     url = "/tags"
-    name = "内容标签"    # 原为 Tags
     weight = 3
-[[menu.main]]
-    url = "/index.xml"
-    name = "订阅更新"    # 原为 RSS
-    weight = 4
 
 # ==========================================
-# 网站功能参数 (Diary 主题专有)
+# 3. Clarity 模板核心参数 (Params)
 # ==========================================
 [params]
-    # 网站副标题，会显示在头像下方
-    subtitle = "Moss and Iron"
-    
-    # 侧边栏设置
-    enableSidebar = true         # 开启侧边栏
-    fixedSidebar = true          # 滚动时固定侧边栏（推荐小说站开启）
-
-    # 评论系统（如果还没配置好，建议都设为 false，页面会更清爽）
-    enableGitalk = false
-    enableGiscus = false         # 暂时关闭报错的评论框
-
-    # 社交分享设置 (Open Graph)
-    enableOpenGraph = true
-    enableTwitterCards = true
-    # 当别人分享你的链接时显示的标题和描述
-    title = "苔藓与钢铁" 
+    # 网站描述（SEO）
     description = "当卑微者踏平群山，钢铁便在绿意中生锈。"
+    
+    # 界面设置
+    enforceLightMode = false    # 允许读者在右上角切换深色模式（保护眼睛，适合看小说）
+    mobileMenuTitle = "菜单"
+    
+    # 首页简介（Clarity 首页会显示这一段）
+    introTitle = "苔藓与钢铁"
+    introDescription = "Moss and Iron - 欢迎来到我的小说世界"
+
+    # 文章列表页的日期格式
+    dateFormat = "2006-01-02"
+
+    # 功能开关
+    showShareIcons = true
+    showReadingTime = true      # 显示阅读剩余时间
+    numberOfVisiblePosts = 10
 
 # ==========================================
-# 渲染设置 (代码高亮等)
+# 4. 内容渲染引擎设置 (关键：不改这个 Vercel 可能会漏掉图片)
 # ==========================================
 [markup]
+  [markup.goldmark.renderer]
+    unsafe = true  # 允许在 Markdown 中使用 HTML（比如居中代码或特殊排版）
   [markup.highlight]
     codeFences = true
-    style = "perldoc" # 也可以换成 "monokai" 或 "github"
+    guessSyntax = true
+    lineNos = true
+    style = "monokai"
 
 # ==========================================
-# 搜索与地图 (SEO)
+# 5. 分类法 (Taxonomies)
 # ==========================================
-[sitemap]
-  changefreq = "always"
-  filename = "sitemap.xml"
-  priority = 0.5
-
-# 分类法定义
 [taxonomies]
-   tag = "tags"
-   category = "categories"
+    category = "categories"
+    tag = "tags"
+    series = "series"  # 专门为小说加一个“系列”分类，方便做全集索引
