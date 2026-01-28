@@ -40,7 +40,7 @@ paginate = 6
 # ==========================================
 [params]
     # 你的 logo 文件路径（相对 static/ 目录）
-    logo = "/images/logo.png"   # 或 .svg / .webp 都行
+    logo = "/static/images/logo.png"   # 或 .svg / .webp 都行
 
     # 强烈建议关闭居中（否则 logo 会跑到中间或被隐藏）
     centerLogo = false
