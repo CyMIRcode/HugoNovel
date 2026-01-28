@@ -56,7 +56,7 @@ paginate = 6
 
     # 首页简介（Clarity 会显示在首页顶部）
     introTitle = "苔藓与钢铁"
-    introDescription = "Moss and Iron - 欢迎来到我的小说世界"
+    introDescription = "Moss and Iron - 当卑微者踏平群山，钢铁便在绿意中生锈。"
 
     # 日期格式（简洁显示）
     dateFormat = "2006-01-02"
