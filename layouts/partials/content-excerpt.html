@@ -1,0 +1,5 @@
+{{ $plain := .Summary | plainify }}
+{{ $excerpt := substr $plain 0 120 | safeHTML }}  <!-- 强制前120字符 ≈80–90汉字 -->
+<p class="excerpt">
+  {{ $excerpt }}...
+</p>
