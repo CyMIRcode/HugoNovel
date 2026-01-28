@@ -12,7 +12,7 @@ languageCode = "zh-cn"
 hasCJKLanguage = true
 
 # 全局摘要长度（中文环境下 150 ≈ 100–120 个汉字，首页/列表预览更简洁，密度降低）
-summaryLength = 150
+summaryLength = 80
 
 # 文章列表每页显示数量（减少密度，避免首页太拥挤）
 paginate = 6
