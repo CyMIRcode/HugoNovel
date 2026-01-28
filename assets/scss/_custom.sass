@@ -1,0 +1,18 @@
+// 中文字体优先 + 加大舒适度
+body, article, p, li, h1, h2, h3, h4
+  font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
+  font-size: 1.125rem          // 稍大一点
+  line-height: 2.0 !important  // 关键！拉开行距
+  letter-spacing: 0.03em       // 中文轻微字距
+  word-spacing: 0.1em
+
+p
+  margin-bottom: 2.5rem        // 段落间距更大
+
+.article-content
+  max-width: 42rem             // 缩小正文宽度，黄金阅读宽度
+  margin: 0 auto
+
+// 暗色模式下文字更柔和（如果启用 dark mode）
+[data-theme="dark"] body
+  color: #e2e8f0
