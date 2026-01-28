@@ -39,6 +39,14 @@ paginate = 6
 # 3. Clarity 模板核心参数 (Params)
 # ==========================================
 [params]
+    # 你的 logo 文件路径（相对 static/ 目录）
+    logo = "icons/apple-touch-icon.png"   # 或 .svg / .webp 都行
+
+    # 强烈建议关闭居中（否则 logo 会跑到中间或被隐藏）
+    centerLogo = false
+
+    # 可选：调整 logo 大小（像素）
+    logoHeight = 40   # 默认 28，建议 40–60
     # 网站描述（SEO）
     description = "当卑微者踏平群山，钢铁便在绿意中生锈。"
 
