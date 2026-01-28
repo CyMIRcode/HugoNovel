@@ -15,7 +15,7 @@
       <div class="excerpt_footer">
         {{- end }}
         <div class="pale">
-          {{- $summary := truncate 320  (htmlUnescape .Plain) }}
+          {{- $summary := truncate 120  (htmlUnescape .Plain) }}
           {{- if .Params.summary }}
             {{- $summary = .Params.summary }}
           {{- else if .Params.abstract }}
