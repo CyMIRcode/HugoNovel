@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "HUGO_VERSION": "0.139.0"   // 或更高，如 0.154.4（2026最新版支持 css.Sass 完美）
+      "HUGO_VERSION": "0.139.0"
     }
   }
 }
