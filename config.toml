@@ -6,10 +6,16 @@ title = "苔藓与钢铁"
 copyright = "© IDV.NG 苔藓与钢铁 . All Rights Reserved."
 theme = "clarity"
 
-# 默认语言与国际化
+# 默认语言与国际化（已开启 CJK 支持，确保中文摘要、字数统计正常）
 defaultContentLanguage = "zh"
 languageCode = "zh-cn"
-hasCJKLanguage = true    # 核心：开启中日韩文字优化，确保小说字数统计和摘要显示正常
+hasCJKLanguage = true
+
+# 全局摘要长度（中文环境下 150 ≈ 100–120 个汉字，首页/列表预览更简洁，密度降低）
+summaryLength = 150
+
+# 文章列表每页显示数量（减少密度，避免首页太拥挤）
+paginate = 6
 
 # ==========================================
 # 2. 导航菜单 (Clarity 顶部菜单)
@@ -18,10 +24,12 @@ hasCJKLanguage = true    # 核心：开启中日韩文字优化，确保小说�
     name = "章节目录"
     url = "/posts"
     weight = 1
+
 [[menu.main]]
     name = "作品分类"
     url = "/categories"
     weight = 2
+
 [[menu.main]]
     name = "内容标签"
     url = "/tags"
@@ -33,37 +41,45 @@ hasCJKLanguage = true    # 核心：开启中日韩文字优化，确保小说�
 [params]
     # 网站描述（SEO）
     description = "当卑微者踏平群山，钢铁便在绿意中生锈。"
-    
+
     # 界面设置
-    enforceLightMode = false    # 允许读者在右上角切换深色模式（保护眼睛，适合看小说）
+    enforceLightMode = false          # 允许切换深色模式（适合长时间阅读小说）
     mobileMenuTitle = "菜单"
-    
-    # 首页简介（Clarity 首页会显示这一段）
+
+    # 首页简介（Clarity 会显示在首页顶部）
     introTitle = "苔藓与钢铁"
     introDescription = "Moss and Iron - 欢迎来到我的小说世界"
 
-    # 文章列表页的日期格式
+    # 日期格式（简洁显示）
     dateFormat = "2006-01-02"
 
     # 功能开关
-    showShareIcons = true
-    showReadingTime = true      # 显示阅读剩余时间
-    numberOfVisiblePosts = 10
+    showShareIcons = true             # 显示分享按钮
+    showReadingTime = true            # 显示阅读时长
+    numberOfVisiblePosts = 6          # 首页可见文章数（与 paginate 配合，保持一致）
 
-    customFonts = true   # 如果想加载额外字体
-    customCSS = ["sass/_custom.css"]  # Hugo 会自动处理 sass → css
+    # 自定义字体与 CSS（已启用你的 _custom.sass）
+    customFonts = true
+    customCSS = ["sass/_custom.css"]
+
+    # 其他 Clarity 推荐参数（优化小说阅读体验）
+    showRelatedInArticle = true       # 文章末尾显示相关章节
+    showRelatedInSidebar = true       # 侧边栏显示相关内容
+    pinFeatured = true                # 启用置顶精选文章（首页大卡片）
+    numberOfPinnedPosts = 3           # 置顶 3 篇（最新或热门章节）
 
 # ==========================================
-# 4. 内容渲染引擎设置 (关键：不改这个 Vercel 可能会漏掉图片)
+# 4. 内容渲染引擎设置
 # ==========================================
 [markup]
   [markup.goldmark.renderer]
-    unsafe = true  # 允许在 Markdown 中使用 HTML（比如居中代码或特殊排版）
+    unsafe = true                     # 允许 Markdown 内嵌 HTML（用于特殊排版）
+
   [markup.highlight]
     codeFences = true
     guessSyntax = true
     lineNos = true
-    style = "monokai"
+    style = "monokai"                 # 代码高亮风格（小说中如果有代码片段会用到）
 
 # ==========================================
 # 5. 分类法 (Taxonomies)
@@ -71,4 +87,4 @@ hasCJKLanguage = true    # 核心：开启中日韩文字优化，确保小说�
 [taxonomies]
     category = "categories"
     tag = "tags"
-    series = "series"  # 专门为小说加一个“系列”分类，方便做全集索引
+    series = "series"                 # 小说系列专用分类（方便做全集/卷索引）
