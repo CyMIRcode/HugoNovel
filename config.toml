@@ -3,7 +3,7 @@
 # ==========================================
 baseURL = "/"
 title = "苔藓与钢铁"
-copyright = "© IDV.NG 苔藓与钢铁 . All Rights Reserved."
+copyright = "© IDV.NG 苔藓与钢铁 "
 theme = "clarity"
 
 # 默认语言与国际化（已开启 CJK 支持，确保中文摘要、字数统计正常）
