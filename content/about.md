@@ -1,5 +1,5 @@
 ---
-title: "About/"
+title: "About"
 date: 2025-10-10
 description: "欢迎访问苔藓与钢铁"
 featured_image: ""
