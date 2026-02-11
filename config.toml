@@ -40,6 +40,11 @@ name = "About"
 url = "/about"
 weight = 4
 
+[[menu.main]]
+name = "Link"
+url = "/link"
+weight = 5
+
 # ==========================================
 # 3. Clarity 模板核心参数 (Params)
 # ==========================================
