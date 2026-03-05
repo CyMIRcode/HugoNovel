@@ -35,19 +35,17 @@ p, .excerpt p, .post-excerpt p
 [data-theme="dark"] h4
   color: #e2e8f0 !important
 
-// === 缩略图倒圆角 + 强制保持原比例（核心修复） ===
-.thumbnail,
-.excerpt_thumbnail,
-.post-thumbnail,
-.article-thumbnail,
-.featured-image,
-.card-image,
+// === 只针对缩略图加圆角（最安全，不碰比例） ===
+.excerpt_thumbnail img,
+.thumbnail img,
+.post-thumbnail img,
+.article-thumbnail img,
+.featured-image img,
+.card-image img,
 .excerpt img,
 .post-item img,
 .article-list-item img,
 .card img,
-.thumbnail img,
-.featured img,
 img.thumbnail,
 img.featured,
 img[alt*="thumbnail"],
@@ -57,55 +55,31 @@ img[alt*="cover"]
   overflow: hidden !important
   display: block !important
   width: 100% !important
-  height: auto !important               // 关键：强制自适应高度
-  max-height: 280px !important           // 限制最大高度，避免过长拉伸
-  object-fit: cover !important           // 保持比例不变形
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important
-
-// 悬停效果
-.thumbnail:hover,
-.excerpt_thumbnail:hover,
-.post-thumbnail:hover,
-.article-thumbnail:hover,
-.featured-image:hover,
-.card-image:hover
-  transform: scale(1.03) !important
-  box-shadow: 0 12px 24px rgba(0,0,0,0.25) !important
-
-// 容器不强制高度，防止空框拉伸
-.excerpt_thumbnail,
-.thumbnail-container,
-.featured-image-container,
-.card-image-container,
-.post-thumbnail-container,
-.excerpt_footer
   height: auto !important
-  min-height: unset !important
+  object-fit: contain !important  // 改成 contain，避免裁剪变形
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important  // 轻阴影（可选）
 
-// === 按钮微调：紧贴图片/文字底部，不拉伸 ===
+// === 按钮位置微调：只加间距，不动布局 ===
 .excerpt_more,
 .read-more,
 .button.read-more,
 .excerpt .excerpt_more,
 .post .read-more
-  margin-top: 1rem !important           // 与图片/文字的间距（微调到合适值）
+  margin-top: 1rem !important          // 与图片/文字底部距离（可调 0.8rem / 1.2rem）
   margin-bottom: 1.5rem !important
-  display: inline-block !important       // 小按钮，不占满宽度
-  padding: 0.5rem 1.2rem !important      // 缩小内边距
-  border-radius: 999px !important        // 胶囊形
+  display: inline-block !important
+  padding: 0.5rem 1.2rem !important
+  border-radius: 999px !important
   background: #0066cc !important
   color: white !important
   font-weight: 600 !important
   text-decoration: none !important
   font-size: 0.95rem !important
   line-height: 1.4 !important
-  transition: all 0.3s ease !important
+  transition: background 0.3s ease !important  // 只保留背景变色，不放大
 
-// 按钮悬停
+// 按钮悬停（只变颜色，不放大/抬升）
 .excerpt_more:hover,
 .read-more:hover,
 .button.read-more:hover
   background: #004080 !important
-  transform: translateY(-2px) !important
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important
