@@ -18,30 +18,29 @@ p
   color: #e2e8f0
 
 // ==========================================
-// 图片圆角与列表页美化
+// 强力覆盖：图片圆角美化
 // ==========================================
 
-// 列表页缩略图容器
-.post-entry .post-thumbnail
-  border-radius: 12px !important
-  overflow: hidden !important
-  margin-right: 2rem
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)
-  transition: transform 0.3s ease
-
-  // 容器内的图片
+// 1. 首页列表缩略图
+.excerpt, .post-entry, .image
   img
     border-radius: 12px !important
-    object-fit: cover
-    display: block
+    overflow: hidden !important
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important
+    transition: transform 0.3s ease
+    display: inline-block
+    
+  &:hover img
+    transform: translateY(-4px)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important
 
-// 鼠标悬停微调
-.post-entry:hover .post-thumbnail
-  transform: translateY(-4px)
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12)
+// 2. 文章页内顶部大图
+.post_item, .post_content, .featured_image
+  img
+    border-radius: 16px !important
+    margin-bottom: 2rem
 
-// 文章详情页顶部大图也加上圆角
-.post-featured-image, .featured-image
-  border-radius: 16px !important
-  overflow: hidden
-  margin-bottom: 2rem
+// 3. 如果你的图片是作为背景图显示的（Clarity 有时会这样处理）
+.image
+  border-radius: 12px !important
+  background-size: cover
