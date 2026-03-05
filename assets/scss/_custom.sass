@@ -1,18 +1,32 @@
-// 中文字体优先 + 加大舒适度
+// 1. 全局字体与排版优化
 body, article, p, li, h1, h2, h3, h4
   font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
-  font-size: 1.125rem          // 稍大一点
-  line-height: 2.0 !important  // 关键！拉开行距
-  letter-spacing: 0.03em       // 中文轻微字距
+  font-size: 1.125rem
+  line-height: 2.0 !important
+  letter-spacing: 0.03em
   word-spacing: 0.1em
 
 p
-  margin-bottom: 2.5rem        // 段落间距更大
+  margin-bottom: 2.5rem
 
 .article-content
-  max-width: 42rem             // 缩小正文宽度，黄金阅读宽度
+  max-width: 42rem
   margin: 0 auto
 
-// 暗色模式下文字更柔和（如果启用 dark mode）
+// 2. 暗色模式配色
 [data-theme="dark"] body
   color: #e2e8f0
+
+// 3. 首页缩略图圆角（核心修正：顶格编写，不要缩进）
+.post-entry .post-thumbnail, .excerpt .image, .excerpt_thumbnail
+  img
+    border-radius: 12px !important
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important
+    object-fit: cover
+    display: block
+
+// 4. 文章详情页大图圆角
+.post_item .featured_image, .post-featured-image, .featured_image
+  img
+    border-radius: 16px !important
+    overflow: hidden
