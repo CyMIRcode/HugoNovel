@@ -1,32 +1,18 @@
-// 1. 全局字体与排版（保持你原来的设置）
+似乎并没有效果。 // 中文字体优先 + 加大舒适度
 body, article, p, li, h1, h2, h3, h4
-  font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
-  font-size: 1.125rem
-  line-height: 2.0 !important
-  letter-spacing: 0.03em
+  font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
+  font-size: 1.125rem          // 稍大一点
+  line-height: 2.0 !important  // 关键！拉开行距
+  letter-spacing: 0.03em       // 中文轻微字距
+  word-spacing: 0.1em
 
 p
-  margin-bottom: 2.5rem
+  margin-bottom: 2.5rem        // 段落间距更大
 
-// 2. 强力修正：首页缩略图圆角
-// 针对 Clarity 主题各种可能的图片容器名
-.excerpt_thumbnail, .post-entry .image, .excerpt .image, .post-thumbnail
-  overflow: hidden !important
-  border-radius: 12px !important // 这里控制圆角
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important
-  margin-top: 0.5rem // 稍微向下移一点，对齐文字第一行
-  
-  img
-    border-radius: 12px !important
-    transition: transform 0.3s ease !important
-    object-fit: cover !important
+.article-content
+  max-width: 42rem             // 缩小正文宽度，黄金阅读宽度
+  margin: 0 auto
 
-  // 悬停动画：图片微放大
-  &:hover img
-    transform: scale(1.05)
-
-// 3. 详情页大图圆角
-.post_item .featured_image, .post-featured-image
-  img
-    border-radius: 16px !important
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1)
+// 暗色模式下文字更柔和（如果启用 dark mode）
+[data-theme="dark"] body
+  color: #e2e8f0
