@@ -1,4 +1,4 @@
-// 基础阅读舒适度（保留你的核心字体和间距）
+// 1. 字体和阅读舒适度（保留原设置）
 body, 
 #content, 
 .article-content, 
@@ -23,64 +23,47 @@ p, .excerpt p, .post-excerpt p
   margin: 0 auto !important
   padding: 0 1rem !important
 
-// 暗色模式文字
-[data-theme="dark"] body,
-[data-theme="dark"] #content,
-[data-theme="dark"] .article-content,
-[data-theme="dark"] p,
-[data-theme="dark"] li,
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4
-  color: #e2e8f0 !important
-
-// === 缩略图：只加圆角 + 阴影（不碰比例） ===
+// 2. 缩略图：只加圆角 + 强制比例（针对实际类名）
 .excerpt_thumbnail img,
 .thumbnail img,
 .post-thumbnail img,
 .article-thumbnail img,
 .featured-image img,
-.card-image img,
-.excerpt img,
-.post-item img,
-.article-list-item img,
-.card img,
-img.thumbnail,
-img.featured,
-img[alt*="thumbnail"],
-img[alt*="featured"],
-img[alt*="cover"]
+.card-image img
   border-radius: 16px !important
   overflow: hidden !important
-  display: block !important
   width: 100% !important
   height: auto !important
-  object-fit: cover !important
+  object-fit: cover !important     // 保持比例不拉伸
   box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important
 
-// === 按钮：向上拉近图片底部（负 margin），小巧无干扰 ===
-.excerpt_more,
-.read-more,
-.button.read-more,
-.excerpt .excerpt_more,
-.post .read-more
-  margin-top: -1.2rem !important        // 负值向上拉，贴近图片/文字（核心调整，可试 -1rem ~ -1.4rem）
-  margin-bottom: 1.5rem !important
+// 3. 按钮：向上贴近图片/文字底部（负 margin + 小间距）
+.excerpt_more.button,
+.read-more.button
+  margin-top: -1rem !important      // 核心：向上拉近（可调 -0.8rem ~ -1.3rem）
+  margin-bottom: 1.2rem !important
   margin-left: 0 !important
-  display: inline-block !important
-  padding: 0.5rem 1.2rem !important     // 小巧尺寸
+  padding: 0.5rem 1.2rem !important
   border-radius: 999px !important
   background: #0066cc !important
   color: white !important
   font-weight: 600 !important
-  text-decoration: none !important
   font-size: 0.95rem !important
   line-height: 1.4 !important
   transition: background 0.3s ease !important
 
-// 按钮悬停：只变色，无其他效果
-.excerpt_more:hover,
-.read-more:hover,
-.button.read-more:hover
+// 悬停只变色，无放大/抬升
+.excerpt_more.button:hover,
+.read-more.button:hover
   background: #004080 !important
+
+// 4. 防止卡片被拉伸（最关键修复）
+.excerpt_footer.partition,
+.excerpt_footer,
+.thumbnail-container,
+.excerpt_thumbnail
+  height: auto !important
+  min-height: unset !important
+  margin-top: 0 !important
+  padding-top: 0 !important
+  padding-bottom: 0 !important
