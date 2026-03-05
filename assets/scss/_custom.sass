@@ -16,31 +16,3 @@ p
 // 暗色模式下文字更柔和（如果启用 dark mode）
 [data-theme="dark"] body
   color: #e2e8f0
-
-// ==========================================
-// 强力覆盖：图片圆角美化
-// ==========================================
-
-// 1. 首页列表缩略图
-.excerpt, .post-entry, .image
-  img
-    border-radius: 12px !important
-    overflow: hidden !important
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important
-    transition: transform 0.3s ease
-    display: inline-block
-    
-  &:hover img
-    transform: translateY(-4px)
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important
-
-// 2. 文章页内顶部大图
-.post_item, .post_content, .featured_image
-  img
-    border-radius: 16px !important
-    margin-bottom: 2rem
-
-// 3. 如果你的图片是作为背景图显示的（Clarity 有时会这样处理）
-.image
-  border-radius: 12px !important
-  background-size: cover
