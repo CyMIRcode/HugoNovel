@@ -1,4 +1,4 @@
-// 中文字体优先 + 加大舒适度（加强选择器优先级）
+// 中文字体优先 + 加大舒适度（保留原设置）
 body, 
 #content, 
 .article-content, 
@@ -23,7 +23,7 @@ p, .excerpt p, .post-excerpt p
   margin: 0 auto !important
   padding: 0 1rem !important
 
-// 暗色模式文字更柔和
+// 暗色模式文字柔和
 [data-theme="dark"] body,
 [data-theme="dark"] #content,
 [data-theme="dark"] .article-content,
@@ -35,7 +35,7 @@ p, .excerpt p, .post-excerpt p
 [data-theme="dark"] h4
   color: #e2e8f0 !important
 
-// === 缩略图倒圆角 + 美化（覆盖 Clarity 常见类） ===
+// 缩略图倒圆角 + 美化（你满意的部分，保留）
 .thumbnail,
 .excerpt_thumbnail,
 .post-thumbnail,
@@ -53,7 +53,7 @@ img.featured,
 img[alt*="thumbnail"],
 img[alt*="featured"],
 img[alt*="cover"]
-  border-radius: 16px !important          // 圆角大小，可调 12px/20px
+  border-radius: 16px !important
   overflow: hidden !important
   display: block !important
   width: 100% !important
@@ -62,7 +62,6 @@ img[alt*="cover"]
   box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important
   transition: transform 0.3s ease, box-shadow 0.3s ease !important
 
-// 悬停放大效果（可选）
 .thumbnail:hover,
 .excerpt_thumbnail:hover,
 .post-thumbnail:hover,
@@ -72,35 +71,24 @@ img[alt*="cover"]
   transform: scale(1.03) !important
   box-shadow: 0 12px 24px rgba(0,0,0,0.25) !important
 
-// 容器也强制圆角（防止图片溢出）
-.thumbnail-container,
-.excerpt_thumbnail,
-.featured-image-container,
-.card-image-container,
-.post-thumbnail-container
-  border-radius: 16px !important
-  overflow: hidden !important
-
-// === 按钮位置调整：与图片/内容底部齐平 ===
+// === 按钮调整：紧贴图片/文字底部，小巧独立 ===
 .excerpt_footer,
 .excerpt_more,
 .read-more,
 .button.read-more,
-.excerpt .excerpt_more,
-.post .read-more
-  margin-top: 0.5rem !important          // 与图片/文字底部距离缩小
-  margin-bottom: 1rem !important
-  display: inline-flex !important
-  align-items: center !important
-  justify-content: center !important
-  padding: 0.75rem 1.8rem !important
-  border-radius: 999px !important         // 胶囊形按钮
-  background: #0066cc !important          // 主色（可换你的主题色）
+.excerpt .excerpt_more
+  margin-top: 1rem !important           // 与图片/文字的间距（可调 0.75rem / 1.2rem）
+  margin-bottom: 1.5rem !important      // 底部留白
+  display: inline-block !important      // 恢复小按钮，而不是占满宽度
+  padding: 0.6rem 1.4rem !important     // 缩小内边距，更紧凑
+  border-radius: 999px !important        // 胶囊形
+  background: #0066cc !important
   color: white !important
   font-weight: 600 !important
   text-decoration: none !important
-  transition: all 0.3s ease !important
+  font-size: 1rem !important
   line-height: 1.4 !important
+  transition: all 0.3s ease !important
 
 // 按钮悬停
 .excerpt_more:hover,
@@ -108,18 +96,11 @@ img[alt*="cover"]
 .button.read-more:hover
   background: #004080 !important
   transform: translateY(-2px) !important
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important
 
-// 强制按钮贴近内容底部
+// 取消过度 flex 推底（避免大块蓝色区域）
 .excerpt,
 .post-item,
 .article-list-item,
 .card
-  display: flex !important
-  flex-direction: column !important
-  height: 100% !important
-
-.excerpt_footer,
-.read-more-container
-  margin-top: auto !important           // 推到底部对齐
-  padding-top: 0.75rem !important
+  display: block !important  // 恢复正常块级
