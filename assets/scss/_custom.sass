@@ -1,4 +1,4 @@
-// 中文字体优先 + 加大舒适度（原设置保留 + 加强优先级）
+// 中文字体优先 + 加大舒适度（原设置保留）
 body, 
 .article-content, 
 #content, 
@@ -31,57 +31,54 @@ p, .excerpt p, .post-excerpt p
 [data-theme="dark"] h4
   color: #e2e8f0 !important
 
-// === 新增：缩略图倒圆角 + 美化 ===
-.excerpt_thumbnail img,
-.post-thumbnail img,
-.article-thumbnail img,
-.featured-image img,
-.card-image img,
+// === 强制缩略图倒圆角 + 美化（针对 Clarity 常见类） ===
+.excerpt_thumbnail,
+.thumbnail,
+.post-thumbnail,
+.article-thumbnail,
+.featured-image,
+.card-image,
+.excerpt img,
+.post-item img,
+.article-list-item img,
+.card img,
+img.thumbnail,
+img.featured,
 img[alt*="thumbnail"],
-img[alt*="featured"]
-  border-radius: 12px !important      // 圆角半径，12px 比较柔和，可调成 8px 或 16px
-  overflow: hidden !important
-  object-fit: cover !important
+img[alt*="featured"],
+img[alt*="cover"]
+  border-radius: 16px !important          // 圆角大小，16px 柔和自然，可改 12px/20px
+  overflow: hidden !important             // 防止图片溢出圆角
+  display: block !important
   width: 100% !important
   height: auto !important
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important  // 轻微阴影，更立体
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important
+  object-fit: cover !important            // 保持比例不拉伸
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important  // 轻微阴影，更立体
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important
 
-// 鼠标悬停时放大 + 阴影加深（可选，增加互动感）
-.excerpt_thumbnail img:hover,
-.post-thumbnail img:hover,
-.article-thumbnail img:hover
+// 悬停放大（可选，增加互动感）
+.excerpt_thumbnail:hover,
+.thumbnail:hover,
+.post-thumbnail:hover,
+.article-thumbnail:hover,
+.featured-image:hover,
+.card-image:hover
   transform: scale(1.03) !important
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18) !important
 
-// === 按钮位置调整：与图片底部齐平 ===
+// 确保容器也支持圆角（防止溢出）
+.excerpt_thumbnail,
+.thumbnail-container,
+.post-thumbnail-container,
+.featured-image-container
+  border-radius: 16px !important
+  overflow: hidden !important
+
+// 如果按钮位置仍不对劲，可加这个微调（让它贴近图片底部）
 .excerpt_footer,
-.post-excerpt .excerpt_more,
-.article .read-more,
-.button.read-more,
-.excerpt_more
-  margin-top: 1rem !important          // 与图片/文字底部保持距离
+.excerpt_more,
+.read-more,
+.button.read-more
+  margin-top: 0.5rem !important         // 与图片距离缩小
+  margin-left: 0 !important
   display: inline-block !important
-  text-align: center !important
-  width: auto !important
-  padding: 0.75rem 1.5rem !important   // 按钮内边距
-  border-radius: 999px !important      // 圆润按钮（胶囊形）
-  background: #007bff !important       // 主色（可换成你的主题色）
-  color: white !important
-  font-weight: 600 !important
-  text-decoration: none !important
-  transition: all 0.3s ease !important
-
-// 按钮悬停效果
-.excerpt_more:hover,
-.read-more:hover
-  background: #0056b3 !important
-  transform: translateY(-2px) !important
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important
-
-// 强制让按钮与图片/内容底部对齐（垂直居中或底部贴合）
-.excerpt_footer
-  display: flex !important
-  align-items: flex-end !important     // 按钮底部对齐
-  justify-content: flex-start !important
-  margin-top: 0.5rem !important
