@@ -1,4 +1,125 @@
-// 测试 sass 是否加载
-body
-  background: #fff0f5 !important   // 粉色背景，一眼看是否变
-  font-family: "Comic Sans MS", cursive !important  // 字体变漫画体
+// 中文字体优先 + 加大舒适度（加强选择器优先级）
+body, 
+#content, 
+.article-content, 
+.post-content, 
+.entry-content, 
+.page-content,
+.excerpt, 
+.post-excerpt, 
+.article-excerpt,
+p, li, h1, h2, h3, h4, .excerpt p
+  font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
+  font-size: 1.125rem !important
+  line-height: 2.0 !important
+  letter-spacing: 0.03em !important
+  word-spacing: 0.1em !important
+
+p, .excerpt p, .post-excerpt p
+  margin-bottom: 2.5rem !important
+
+.article-content, .post-content, .entry-content, .page-content
+  max-width: 42rem !important
+  margin: 0 auto !important
+  padding: 0 1rem !important
+
+// 暗色模式文字更柔和
+[data-theme="dark"] body,
+[data-theme="dark"] #content,
+[data-theme="dark"] .article-content,
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4
+  color: #e2e8f0 !important
+
+// === 缩略图倒圆角 + 美化（覆盖 Clarity 常见类） ===
+.thumbnail,
+.excerpt_thumbnail,
+.post-thumbnail,
+.article-thumbnail,
+.featured-image,
+.card-image,
+.excerpt img,
+.post-item img,
+.article-list-item img,
+.card img,
+.thumbnail img,
+.featured img,
+img.thumbnail,
+img.featured,
+img[alt*="thumbnail"],
+img[alt*="featured"],
+img[alt*="cover"]
+  border-radius: 16px !important          // 圆角大小，可调 12px/20px
+  overflow: hidden !important
+  display: block !important
+  width: 100% !important
+  height: auto !important
+  object-fit: cover !important
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important
+
+// 悬停放大效果（可选）
+.thumbnail:hover,
+.excerpt_thumbnail:hover,
+.post-thumbnail:hover,
+.article-thumbnail:hover,
+.featured-image:hover,
+.card-image:hover
+  transform: scale(1.03) !important
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25) !important
+
+// 容器也强制圆角（防止图片溢出）
+.thumbnail-container,
+.excerpt_thumbnail,
+.featured-image-container,
+.card-image-container,
+.post-thumbnail-container
+  border-radius: 16px !important
+  overflow: hidden !important
+
+// === 按钮位置调整：与图片/内容底部齐平 ===
+.excerpt_footer,
+.excerpt_more,
+.read-more,
+.button.read-more,
+.excerpt .excerpt_more,
+.post .read-more
+  margin-top: 0.5rem !important          // 与图片/文字底部距离缩小
+  margin-bottom: 1rem !important
+  display: inline-flex !important
+  align-items: center !important
+  justify-content: center !important
+  padding: 0.75rem 1.8rem !important
+  border-radius: 999px !important         // 胶囊形按钮
+  background: #0066cc !important          // 主色（可换你的主题色）
+  color: white !important
+  font-weight: 600 !important
+  text-decoration: none !important
+  transition: all 0.3s ease !important
+  line-height: 1.4 !important
+
+// 按钮悬停
+.excerpt_more:hover,
+.read-more:hover,
+.button.read-more:hover
+  background: #004080 !important
+  transform: translateY(-2px) !important
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important
+
+// 强制按钮贴近内容底部
+.excerpt,
+.post-item,
+.article-list-item,
+.card
+  display: flex !important
+  flex-direction: column !important
+  height: 100% !important
+
+.excerpt_footer,
+.read-more-container
+  margin-top: auto !important           // 推到底部对齐
+  padding-top: 0.75rem !important
