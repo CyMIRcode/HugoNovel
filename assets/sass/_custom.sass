@@ -1,4 +1,4 @@
-// 中文字体优先 + 加大舒适度（保留原设置）
+// 中文字体优先 + 加大舒适度（保留你的核心设置）
 body, 
 #content, 
 .article-content, 
@@ -35,7 +35,7 @@ p, .excerpt p, .post-excerpt p
 [data-theme="dark"] h4
   color: #e2e8f0 !important
 
-// === 缩略图倒圆角 + 强制保持比例 ===
+// === 缩略图倒圆角 + 强制保持原比例（核心修复） ===
 .thumbnail,
 .excerpt_thumbnail,
 .post-thumbnail,
@@ -57,12 +57,13 @@ img[alt*="cover"]
   overflow: hidden !important
   display: block !important
   width: 100% !important
-  height: auto !important                  // 强制自适应高度，保持原比例
-  max-height: 250px !important             // 可选：限制最大高度，避免过长图片
-  object-fit: cover !important             // 裁剪填充，保持比例不拉伸
+  height: auto !important               // 关键：强制自适应高度
+  max-height: 280px !important           // 限制最大高度，避免过长拉伸
+  object-fit: cover !important           // 保持比例不变形
   box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important
   transition: transform 0.3s ease, box-shadow 0.3s ease !important
 
+// 悬停效果
 .thumbnail:hover,
 .excerpt_thumbnail:hover,
 .post-thumbnail:hover,
@@ -72,31 +73,32 @@ img[alt*="cover"]
   transform: scale(1.03) !important
   box-shadow: 0 12px 24px rgba(0,0,0,0.25) !important
 
-// 容器不强制高度，防止拉伸
+// 容器不强制高度，防止空框拉伸
 .excerpt_thumbnail,
 .thumbnail-container,
 .featured-image-container,
 .card-image-container,
-.post-thumbnail-container
-  overflow: hidden !important
-  border-radius: 16px !important
+.post-thumbnail-container,
+.excerpt_footer
+  height: auto !important
+  min-height: unset !important
 
-// === 按钮微调：紧贴图片底部，小巧独立 ===
+// === 按钮微调：紧贴图片/文字底部，不拉伸 ===
 .excerpt_more,
 .read-more,
 .button.read-more,
 .excerpt .excerpt_more,
 .post .read-more
-  margin-top: 0.8rem !important           // 与图片/文字间距（微调到 0.8rem 更贴合）
+  margin-top: 1rem !important           // 与图片/文字的间距（微调到合适值）
   margin-bottom: 1.5rem !important
-  display: inline-block !important        // 小按钮，不占满
-  padding: 0.5rem 1.2rem !important       // 缩小内边距，更精致
-  border-radius: 999px !important
+  display: inline-block !important       // 小按钮，不占满宽度
+  padding: 0.5rem 1.2rem !important      // 缩小内边距
+  border-radius: 999px !important        // 胶囊形
   background: #0066cc !important
   color: white !important
   font-weight: 600 !important
   text-decoration: none !important
-  font-size: 0.95rem !important           // 稍小一点
+  font-size: 0.95rem !important
   line-height: 1.4 !important
   transition: all 0.3s ease !important
 
@@ -107,11 +109,3 @@ img[alt*="cover"]
   background: #004080 !important
   transform: translateY(-2px) !important
   box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important
-
-// 取消任何可能拉伸卡片的规则
-.excerpt,
-.post-item,
-.article-list-item,
-.card
-  height: auto !important                 // 恢复自然高度
-  display: block !important               // 避免 flex 拉伸
