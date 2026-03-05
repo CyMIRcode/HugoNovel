@@ -1,0 +1,9 @@
+<div class="excerpt_thumbnail">
+  <a href="{{ .Permalink }}" title="{{ .Title }}">
+    <figure>
+      <picture>
+        <img loading="lazy" decoding="async" alt="{{ .Title }}" class="image_figure image_thumbnail" src="{{ .Params.thumbnail | relURL }}" />
+      </picture>
+    </figure>
+  </a>
+</div>
