@@ -35,17 +35,19 @@ p, .excerpt p, .post-excerpt p
 [data-theme="dark"] h4
   color: #e2e8f0 !important
 
-// === 只针对缩略图加圆角（最安全，不碰比例） ===
-.excerpt_thumbnail img,
-.thumbnail img,
-.post-thumbnail img,
-.article-thumbnail img,
-.featured-image img,
-.card-image img,
+// === 缩略图圆角（保留你满意的效果） ===
+.thumbnail,
+.excerpt_thumbnail,
+.post-thumbnail,
+.article-thumbnail,
+.featured-image,
+.card-image,
 .excerpt img,
 .post-item img,
 .article-list-item img,
 .card img,
+.thumbnail img,
+.featured img,
 img.thumbnail,
 img.featured,
 img[alt*="thumbnail"],
@@ -56,19 +58,20 @@ img[alt*="cover"]
   display: block !important
   width: 100% !important
   height: auto !important
-  object-fit: contain !important  // 改成 contain，避免裁剪变形
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important  // 轻阴影（可选）
+  object-fit: cover !important
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important
 
-// === 按钮位置微调：只加间距，不动布局 ===
+// === 按钮调整：向上拉近图片底部，紧凑对齐 ===
 .excerpt_more,
 .read-more,
 .button.read-more,
 .excerpt .excerpt_more,
 .post .read-more
-  margin-top: 1rem !important          // 与图片/文字底部距离（可调 0.8rem / 1.2rem）
-  margin-bottom: 1.5rem !important
+  margin-top: -0.8rem !important         // 负值向上拉，贴近图片/文字底部（核心调整，可微调 -0.6rem ~ -1rem）
+  margin-bottom: 1.2rem !important       // 底部留白
+  margin-left: 0 !important
   display: inline-block !important
-  padding: 0.5rem 1.2rem !important
+  padding: 0.5rem 1.2rem !important      // 小巧内边距
   border-radius: 999px !important
   background: #0066cc !important
   color: white !important
@@ -76,10 +79,18 @@ img[alt*="cover"]
   text-decoration: none !important
   font-size: 0.95rem !important
   line-height: 1.4 !important
-  transition: background 0.3s ease !important  // 只保留背景变色，不放大
+  transition: background 0.3s ease !important  // 只变色，不放大/抬升
 
-// 按钮悬停（只变颜色，不放大/抬升）
+// 按钮悬停（只变颜色，无其他干扰）
 .excerpt_more:hover,
 .read-more:hover,
 .button.read-more:hover
   background: #004080 !important
+
+// 防止卡片被拉伸（恢复默认布局）
+.excerpt,
+.post-item,
+.article-list-item,
+.card
+  height: auto !important
+  display: block !important
