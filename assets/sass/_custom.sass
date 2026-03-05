@@ -1,69 +1,23 @@
-// 1. 字体和阅读舒适度（保留原设置）
-body, 
-#content, 
-.article-content, 
-.post-content, 
-.entry-content, 
-.page-content,
-.excerpt, 
-.post-excerpt, 
-.article-excerpt,
-p, li, h1, h2, h3, h4, .excerpt p
-  font-family: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", system-ui, sans-serif !important
-  font-size: 1.125rem !important
+// 只保留最核心的字体舒适度（如果你不需要字体调整，也可以全部删掉，只留下面图片部分）
+body, p, li, .excerpt p, .post-excerpt p
   line-height: 2.0 !important
   letter-spacing: 0.03em !important
-  word-spacing: 0.1em !important
 
-p, .excerpt p, .post-excerpt p
-  margin-bottom: 2.5rem !important
-
-.article-content, .post-content, .entry-content, .page-content
-  max-width: 42rem !important
-  margin: 0 auto !important
-  padding: 0 1rem !important
-
-// 2. 缩略图：只加圆角 + 强制比例（针对实际类名）
+// === 唯一目标：给缩略图加圆角 ===
 .excerpt_thumbnail img,
 .thumbnail img,
 .post-thumbnail img,
 .article-thumbnail img,
 .featured-image img,
-.card-image img
+.card-image img,
+.excerpt img,
+.post-item img,
+.article-list-item img,
+.card img,
+img.thumbnail,
+img.featured,
+img[alt*="thumbnail"],
+img[alt*="featured"],
+img[alt*="cover"]
   border-radius: 16px !important
   overflow: hidden !important
-  width: 100% !important
-  height: auto !important
-  object-fit: cover !important     // 保持比例不拉伸
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important
-
-// 3. 按钮：向上贴近图片/文字底部（负 margin + 小间距）
-.excerpt_more.button,
-.read-more.button
-  margin-top: -1rem !important      // 核心：向上拉近（可调 -0.8rem ~ -1.3rem）
-  margin-bottom: 1.2rem !important
-  margin-left: 0 !important
-  padding: 0.5rem 1.2rem !important
-  border-radius: 999px !important
-  background: #0066cc !important
-  color: white !important
-  font-weight: 600 !important
-  font-size: 0.95rem !important
-  line-height: 1.4 !important
-  transition: background 0.3s ease !important
-
-// 悬停只变色，无放大/抬升
-.excerpt_more.button:hover,
-.read-more.button:hover
-  background: #004080 !important
-
-// 4. 防止卡片被拉伸（最关键修复）
-.excerpt_footer.partition,
-.excerpt_footer,
-.thumbnail-container,
-.excerpt_thumbnail
-  height: auto !important
-  min-height: unset !important
-  margin-top: 0 !important
-  padding-top: 0 !important
-  padding-bottom: 0 !important
